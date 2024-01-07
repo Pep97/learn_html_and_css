@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Survey</title>
+    <link rel="stylesheet" href="cash-register.css">
+</head>
+<body>
+    
+    
+
+    <nav id="navbar">
+        <ul class="nav-list">
+            <li>
+                <a href="../index.html">Home</a>
+            </li>
+            <li>
+                <a href="">About</a>
+            </li>
+            <li>
+                <a href="">Project</a>
+            </li>
+            <li>
+                <a href="">Contact</a>
+            </li>
+
+        </ul>
+    </nav>
+
+
+    <main>
+
+        <h1>Cash Register Machine</h1>
+
+        <p class="status-order"></p>
+
+        <p>Enter cash from customer:</p>
+        <input type="number" id="cash-customer">
+        <button>Purchase</button>
+
+        <p class="total-spent"></p>
+
+        <div class="first-container">
+            <h5>Change in drawers:</h5>
+            <p>Pennies:</p>
+            <p>Nickels:</p>
+            <p>Dimes:</p>
+            <p>Quarters:</p>
+            <p>Ones:</p>
+            <p>Fives:</p>
+            <p>Tens:</p>
+            <p>Twenties:</p>
+            <p>Hundreds:</p>
+        </div>
+        
+    </main>
+
+
+    <script>
+
+        let cashCustomer = document.getElementById("cash-customer");
+        let purchaseButton = document.querySelector("button");
+        let totalSpent = document.querySelector(".total-spent");
+        let changeInDrawers = document.querySelectorAll(".first-container p");
+
+
+        //Random number total spent
+
+        totalSpent = Math.random()*5;
+        document.querySelector(".total-spent").innerHTML = "Total Order: $" + totalSpent.toFixed(2);
+
+        // Random number change in drawers
+
+        let drawers = {
+            Pennies: { html: "Pennies: $",Coins: 0},
+            Nickels: { html: "Nickels: $",Coins: 0},
+            Dimes: { html: "Dimes: $",Coins: 0},
+            Quarters: { html: "Quarters: $",Coins: 0},
+            
+        };
+
+        for (let i = 0; i < changeInDrawers.length; i++) {
+            changeInDrawers[i].innerHTML += " $" + Math.random()*5.toFixed(2);
+        }
+
+        // Purchase button
+
+        /*
+        purchaseButton.addEventListener("click", () => {
+            let price = totalSpent;
+            let cash = cashCustomer.value;
+            let cid = [
+                ["PENNY", 1.01],
+                ["NICKEL", 2.05],
+                ["DIME", 3.1],
+                ["QUARTER", 4.25],
+                ["ONE", 90],
+                ["FIVE", 55],
+                ["TEN", 20],
+                ["TWENTY", 60],
+                ["ONE HUNDRED", 100]
+            ];
+
+            let change = cash - price;
+            let changeInDrawers = cid;
+            let totalInDrawers = 0;
+            let changeArray = [];
+            let changeObject = {
+                status: "",
+                change: []
+            };
+
+            for (let i = 0; i < changeInDrawers.length; i++) {
+                totalInDrawers += changeInDrawers[i][1];
+            }
+
+            if (totalInDrawers < change) {
+                changeObject.status = "INSUFFICIENT_FUNDS";
+                document.querySelector(".status-order").innerHTML = "Status: " + changeObject.status;
+                return changeObject;
+            } else if (totalInDrawers === change) {
+                changeObject.status = "CLOSED";
+                changeObject.change = changeInDrawers;
+                document.querySelector(".status-order").innerHTML = "Status: " + changeObject.status;
+                return changeObject;
+            } else {
+                changeInDrawers = changeInDrawers.reverse();
+                for (let i = 0; i < changeInDrawers.length; i++) {
+                    let temp = [changeInDrawers[i][0], 0];
+                    while (change >= changeInDrawers[i][1] && changeInDrawers[i][1] > 0) {
+                        temp[1] += changeInDrawers[i][1];
+                        change -= changeInDrawers[i][1];
+                        change = Math.round(change * 100) / 100;
+                        changeInDrawers[i][1] -= changeInDrawers[i][1];
+                    }
+                    if (temp[1] > 0) {
+                        changeArray.push(temp);
+                    }
+                }
+            }
+
+            if (change > 0) {
+                changeObject.status = "INSUFFICIENT_FUNDS";
+                document.querySelector(".status-order").innerHTML = "Status:
+
+
+
+*/
+
+
+
+
+
+
+
+
+        // const cashRegister = (price, cash, cid) => {
+        //     let change = cash - price;
+        //     let changeInDrawers = cid;
+        //     let totalInDrawers = 0;
+        //     let changeArray = [];
+        //     let changeObject = {
+        //         status: "",
+        //         change: []
+        //     };
+
+        //     for (let i = 0; i < changeInDrawers.length; i++) {
+        //         totalInDrawers += changeInDrawers[i][1];
+        //     }
+
+        //     if (totalInDrawers < change) {
+        //         changeObject.status = "INSUFFICIENT_FUNDS";
+        //         return changeObject;
+        //     } else if (totalInDrawers === change) {
+        //         changeObject.status = "CLOSED";
+        //         changeObject.change = changeInDrawers;
+        //         return changeObject;
+        //     } else {
+        //         changeInDrawers = changeInDrawers.reverse();
+        //         for (let i = 0; i < changeInDrawers.length; i++) {
+        //             let temp = [changeInDrawers[i][0], 0];
+        //             while (change >= changeInDrawers[i][1] && changeInDrawers[i][1] > 0) {
+        //                 temp[1] += changeInDrawers[i][1];
+        //                 change -= changeInDrawers[i][1];
+        //                 change = Math.round(change * 100) / 100;
+        //                 changeInDrawers[i][1] -= changeInDrawers[i][1];
+        //             }
+        //             if (temp[1] > 0) {
+        //                 changeArray.push(temp);
+        //             }
+        //         }
+        //     }
+
+        //     if (change > 0) {
+        //         changeObject.status = "INSUFFICIENT_FUNDS";
+        //         return changeObject;
+        //     }
+
+        //     changeObject.status = "OPEN";
+        //     changeObject.change = changeArray;
+        //     return changeObject;
+        // }
+
+        // purchaseButton.addEventListener("click", () => {
+        //     let price = 3.26;
+        //     let cash = cashCustomer.value;
+        //     let cid = [
+        //         ["PENNY", 1.01],
+        //         ["NICKEL", 2.05],
+        //         ["DIME", 3.1],
+        //         ["QUARTER", 4.25],
+        //         ["ONE", 90],
+        //         ["FIVE", 55],
+        //         ["TEN", 20],
+        //         ["TWENTY", 60],
+        //         ["ONE HUNDRED", 100]
+        //     ];
+
+
+
+
+
+        
+    </script>
+    
+    
+    
+    
+</body>
+</html>
