@@ -68,6 +68,7 @@
 
             let isValid = false;
             
+            //check if the telephone number is valid
 
             for (let i = 0; i < matchvalidation.length; i++) {
                 if (telephoneNumber === matchvalidation[i]) {
@@ -76,25 +77,19 @@
                 }
             }
 
+            //push result to array
+
+            let results = [];
+
             if (isValid) {
-                document.querySelector('.result-input').innerHTML = `Valid US number: ${telephoneNumber}`;
+                let result = `Valid US number: ${telephoneNumber}`;
+                results.push(result);
             } else {
-                document.querySelector('.result-input').innerHTML = `Invalid US number: ${telephoneNumber}`;
+                let result = `Invalid US number: ${telephoneNumber}`;
+                results.push(result);
             }
 
-
             document.querySelector('#telephone-number').value = '';
-
-            // store result
-
-            let results = []; // initialize an empty array
-
-            let result = document.querySelector('.result-input').innerHTML; // get the innerHTML
-
-            results.push(result); // add the innerHTML to the array
-            console.log(results); // check the array
-
-
 
             /* Display result */
 
@@ -107,6 +102,12 @@
 
             
 
+        });
+
+        let buttonClear = document.querySelector('.button-clear');
+
+        buttonClear.addEventListener('click', () => {
+            document.querySelector('.result-input').innerHTML = '';
         });
 
 
