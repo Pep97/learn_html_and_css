@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Survey</title>
+    <link rel="stylesheet" href="telephone-number-validator.css">
+</head>
+<body>
+    
+    
+
+    <nav id="navbar">
+        <ul class="nav-list">
+            <li>
+                <a href="../index.html">Home</a>
+            </li>
+            <li>
+                <a href="">About</a>
+            </li>
+            <li>
+                <a href="">Project</a>
+            </li>
+            <li>
+                <a href="">Contact</a>
+            </li>
+
+        </ul>
+    </nav>
+
+
+    <main>
+
+        <h1>Telephone Number Validator</h1>
+
+        <div class="first-container">
+            <input type="text" id="telephone-number">
+            <p class="result-input"></p>
+
+            <div class="second-container">
+                <button class="button-check">Check</button>
+                <button class="button-clear">Clear</button>
+            </div>
+        </div>
+        
+    </main>
+
+    <script>
+
+        let buttonCheck = document.querySelector('.button-check'); 
+
+        buttonCheck.addEventListener('click', () => {
+
+            
+
+            let telephoneNumber = document.getElementById('telephone-number').value;
+
+            let matchvalidation = [
+                '1 555-555-5555',
+                '1 (555) 555-5555',
+                '1(555)555-5555',
+                '1 555 555 5555',
+                '5555555555',
+                '555-555-5555',
+                '(555)555-5555',
+                '1 456 789 4444'
+            ];
+
+            let isValid = false;
+            
+
+            for (let i = 0; i < matchvalidation.length; i++) {
+                if (telephoneNumber === matchvalidation[i]) {
+                    isValid = true;
+                    break;
+                }
+            }
+
+            if (isValid) {
+                document.querySelector('.result-input').innerHTML = `Valid US number: ${telephoneNumber}`;
+            } else {
+                document.querySelector('.result-input').innerHTML = `Invalid US number: ${telephoneNumber}`;
+            }
+
+
+            document.querySelector('#telephone-number').value = '';
+
+            // store result
+
+            let results = []; // initialize an empty array
+
+            let result = document.querySelector('.result-input').innerHTML; // get the innerHTML
+
+            results.push(result); // add the innerHTML to the array
+            console.log(results); // check the array
+
+
+
+            /* Display result */
+
+
+            let resultElement = document.querySelector('.result-input');
+
+            results.forEach(result => {
+                resultElement.innerHTML += result + "<br>";
+            });
+
+            
+
+        });
+
+
+        
+    </script>
+    
+    
+    
+    
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Survey</title>
+    <link rel="stylesheet" href="palindrome.css">
+</head>
+<body>
+    
+    
+
+    <nav id="navbar">
+        <ul class="nav-list">
+            <li>
+                <a href="../index.html">Home</a>
+            </li>
+            <li>
+                <a href="">About</a>
+            </li>
+            <li>
+                <a href="">Project</a>
+            </li>
+            <li>
+                <a href="">Contact</a>
+            </li>
+
+        </ul>
+    </nav>
+
+
+    <main>
+        <h1>Is it a Palindrome?</h1>
+
+        <div class="first-container">
+            <p>Enter in text to check for a palindrome:</p> 
+            <input type="text" id="input">
+            <button>
+                Check
+            </button>
+            <p class="result-input"></p>
+        </div>
+
+        <div class="second-container">
+            <span>💡</span>
+            <p>A palindrome is a word or sentence that's spelled the same way both forward and backward, ignoring punctuation, case, and spacing.</p>
+        </div>
+    </main>
+
+    <script>
+
+        let input = document.getElementById("input");
+        let button = document.querySelector('button');
+
+        button.addEventListener('click', () => {
+            let input = document.getElementById('input').value;
+            input = input.toLowerCase().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"").replace(/\s/g, "");
+            
+            let reversedInput = input.split('').reverse().join('');
+
+            if (input === reversedInput) {
+                document.querySelector('.result-input').innerHTML = `Yes, ${input} is a palindrome!`;
+            } else {
+                document.querySelector('.result-input').innerHTML = `No, ${input} is not a palindrome!`;
+            }
+
+
+
+        });
+
+    </script>
+    
+    
+    
+    
+</body>
+</html>

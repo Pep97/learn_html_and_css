@@ -1,0 +1,107 @@
+body {
+    background-color: black;
+    color: white;
+}
+
+.first-container{
+    display: flex;
+    justify-content: center;
+    padding-top: 2%;
+    
+}
+
+.second-container {
+    background-image: url(https://cdn.freecodecamp.org/curriculum/css-cafe/beans.jpg) ;
+    width: 90%;
+    margin: 4% auto;
+    padding: 30px ;
+    max-width: 500px;
+}
+.menu {
+
+    background-color: burlywood;
+    color: black;
+    padding: 5px 20px 20px;
+    margin: 0 auto;
+    font-family: sans-serif;
+
+    
+
+}
+
+.first-p{
+    font-size: 18px;
+}
+
+h1 , p, h2{
+    text-align: center;
+}
+
+h1 , h2{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    fallback: serif;
+}
+
+h1{
+    font-size: 40px;
+    
+}
+
+h2{
+    font-size: 30px;
+    margin-bottom: 0px;
+}
+
+.item p{
+    display: inline-block;
+    margin: 5px 0px;
+    font-size: 18px;
+}
+
+.flavor , .dessert{
+    text-align: left;
+    width: 75%;
+    
+}
+
+.price{
+    text-align: right;
+    width: 25%;
+    
+}
+
+.established{
+    font-size: italic;
+}
+
+hr{
+    height: 2px;
+    background-color: brown;
+    border-color: brown;
+}
+
+.bottom-line{
+    margin-top: 25px;
+}
+
+footer{
+    font-size: 14px;
+}
+
+.ourwebsite {
+    color: black;
+}
+
+.ourwebsite:hover {
+    color: brown;
+}
+
+.ourwebsite:active {
+    color: white;
+  } /* in this way you actually change the color of the link when it is clicked */
+
+  img {
+    display: block;
+    margin: 0 auto;
+    
+  }

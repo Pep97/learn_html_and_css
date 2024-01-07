@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roman Numeral Converter</title>
+    <link rel="stylesheet" href="roman-numeral-converter.css">
+</head>
+<body>
+    
+    
+
+    <nav id="navbar">
+        <ul class="nav-list">
+            <li>
+                <a href="../index.html">Home</a>
+            </li>
+            <li>
+                <a href="">About</a>
+            </li>
+            <li>
+                <a href="">Project</a>
+            </li>
+            <li>
+                <a href="">Contact</a>
+            </li>
+
+        </ul>
+    </nav>
+
+
+    <main>
+        <H1>ROMAN NUMERAL CONVERTER</H1>
+
+        <div class="first-container">
+            <p>Enter a Number:</p>
+            <input type="number" id="number">
+            <button>Convert</button>
+        </div>
+
+        <div class="second-container">
+            <p class="result"></p>
+        </div>
+        
+    </main>
+
+    <script>
+
+        let number = document.getElementById("number");
+        let button = document.querySelector('button');
+
+        button.addEventListener('click', () => {
+            let number = document.getElementById('number').value;
+            let result = document.querySelector('.result');
+            let roman = '';
+
+            if (number < 1 || number > 3999) {
+                result.innerHTML = 'Please enter a number between 1 and 3999';
+                return;
+            }
+
+            if (number >= 1000) {
+                roman += 'M'.repeat(number / 1000);
+                number %= 1000;
+            }
+
+            if (number >= 900) {
+                roman += 'CM';
+                number %= 900;
+            }
+
+            if (number >= 500) {
+                roman += 'D';
+                number %= 500;
+            }
+
+            if (number >= 400) {
+                roman += 'CD';
+                number %= 400;
+            }
+
+            if (number >= 100) {
+                roman += 'C'.repeat(number / 100);
+                number %= 100;
+            }
+
+            if (number >= 90) {
+                roman += 'XC';
+                number %= 90;
+            }
+
+            if (number >= 50) {
+                roman += 'L';
+                number %= 50;
+            }
+
+            if (number >= 40) {
+                roman += 'XL';
+                number %= 40;
+            }
+
+            if (number >= 10) {
+                roman += 'X'.repeat(number / 10);
+                number %= 10;
+            }
+
+            if (number >= 9) {
+                roman += 'IX';
+                number %= 9;
+            }
+
+            if (number >= 5) {
+                roman += 'V';
+                number %= 5;
+            }
+
+            if (number >= 4) {
+                roman += 'IV';
+                number %= 4;
+            }
+
+            if (number >= 1) {
+                roman += 'I'.repeat(number / 1);
+                number %= 1;
+            }
+
+            result.innerHTML = roman;
+        });
+
+
+    </script>
+    
+    
+    
+    
+</body>
+</html>
