@@ -1,0 +1,15 @@
+/*
+
+@use "../util" as*;
+
+.guess {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: rem(3);
+  
+  &...tile {
+    boarder: rem(2);
+    background-color: black;
+  }
+}
+
